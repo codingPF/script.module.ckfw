@@ -19,10 +19,10 @@ except ImportError:
     from urllib import urlencode
     from urlparse import parse_qs
     
-from resources.lib.fw.singleton import Singleton
-from resources.lib.fw.logger import Logger
-import resources.lib.fw.utils as pyUtils
-import resources.lib.fw.kodiProgressDialog as PG
+from .singleton import Singleton
+from .logger import Logger
+from . import utils as pyUtils
+from . import kodiProgressDialog as PG
 
 class Kodi(Singleton):
 

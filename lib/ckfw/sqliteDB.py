@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 # pylint: disable=too-many-lines,line-too-long
 import time
 import sqlite3
-import resources.lib.fw.utils as pyUtils
+from . import utils as pyUtils
 
 
 class SqliteDB(object):

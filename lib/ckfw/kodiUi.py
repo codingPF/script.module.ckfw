@@ -9,7 +9,7 @@ import xbmcplugin
 import xbmcgui
 import xbmc
 import datetime
-import resources.lib.fw.utils as pyUtils
+from . import utils as pyUtils
 
 class KodiUI(object):
 
@@ -102,6 +102,7 @@ class KodiUI(object):
                         ndate = pAired
                     else:
                         ndate = (self.tzBase + datetime.timedelta(seconds=(pAired))).isoformat()
+                    airedstring = ndate.replace('T', ' ')
                     info_labels['date'] = airedstring[:10]
                     info_labels['aired'] = airedstring[:10]
                     info_labels['dateadded'] = airedstring
