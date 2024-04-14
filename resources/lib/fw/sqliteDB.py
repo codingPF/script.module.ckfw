@@ -74,6 +74,7 @@ class SqliteDB(object):
         self.getConnection().commit()
         return rs
 
+'''
     def isInitialized(self):
         rt = False
         try:
@@ -86,21 +87,10 @@ class SqliteDB(object):
 
     def create(self):
         self.execute("""
-            CREATE TABLE category (
-            organizationId INT, organizationName VARCHAR(32), organizationImage VARCHAR(128), 
-            channelId INT, channelName VARCHAR(32), channelImage VARCHAR(128), 
-            broadcastId INT NOT NULL PRIMARY KEY, broadcastName VARCHAR(32), broadcastImage VARCHAR(128),
-            tags VARCHAR(256), tagImage VARCHAR(128))"""
-                     , None)
-        self.execute("""
             CREATE TABLE audiofile (
             broadcastId INT, episodeId INT NOT NULL PRIMARY KEY, episodeTitle VARCHAR(256),
             episodeDuration INT, episodeAired INT, episodeDescription VARCHAR(256), 
             episodeUrl VARCHAR(256), episodeImage VARCHAR(256), created INT)"""
-                     , None)
-        self.execute("""
-            CREATE TABLE livestream (
-            livestreamId INT NOT NULL PRIMARY KEY, livestreamName INT, livestreamImage VARCHAR(256), livestreamUrl VARCHAR(256), livestreamDescription VARCHAR(256))"""
                      , None)
 
     def setLastLoadEpisode(self, pBroadcast):
@@ -119,4 +109,4 @@ class SqliteDB(object):
             sql = "INSERT INTO category values (?,?,?,?,?,?,?,?,?,?,?)"
             rs = self.executeUpdate(sql, pParams)
         return rs
-
+'''
