@@ -136,7 +136,8 @@ def saveJson(filename, data):
 
 def b64encode(pMessage):
     if isinstance(pMessage, str):
-        message_bytes = pMessage.encode('utf-8')
+        #message_bytes = pMessage.encode('utf-8') 
+        message_bytes = py2_encode(pMessage)
     else:
         message_bytes = pMessage
     base64_bytes = base64.b64encode(message_bytes)
@@ -146,7 +147,8 @@ def b64encode(pMessage):
 
 def b64decode(pMessage):
     if isinstance(pMessage, str):
-        base64_bytes = pMessage.encode('utf-8')
+        #base64_bytes = pMessage.encode('utf-8')
+        base64_bytes = py2_encode(pMessage)
     else:
         base64_bytes = pMessage
     message_bytes = base64.b64decode(base64_bytes)
