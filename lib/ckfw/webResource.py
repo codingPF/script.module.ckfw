@@ -5,6 +5,7 @@ SPDX-License-Identifier: MIT
 
 # pylint: disable=too-many-lines,line-too-long
 #
+import time
 import zlib
 from contextlib import closing
 #
@@ -52,9 +53,11 @@ class WebResource(object):
         #
         self.url = pUrl
         #
+        self.startTime = 0
 
     def retrieveAsString(self):
         #
+        self.startTime = time.time()
         request = Request(self.url)
         self.logger.debug('url {}',self.url)
         #
@@ -101,6 +104,7 @@ class WebResource(object):
             #
             outputString = b''.join(rsArrayBuffer)
             #
+        self.logger.debug('retrieveAsString {} bytes(s) in {} sec for {}', content_length, round(time.time() - self.startTime, 4), self.url)
         return outputString
             
     def _progressListener(self, pDone, pTotal):
